@@ -310,29 +310,6 @@ Open the notebooks in numerical order from `00` to `09`. The notebooks are desig
 
 ---
 
-## What not to commit
-
-Do not commit raw datasets, processed datasets, local model binaries, virtual environments, or secrets.
-
-The `.gitignore` should exclude:
-
-```text
-data/raw/*
-data/interim/*
-data/processed/*
-reports/model_artifacts/*
-*.xlsx
-*.xls
-*.joblib
-*.pkl
-.env
-.venv/
-```
-
-Generated tables, figures, and governance markdown files may be committed if they do not expose confidential or restricted raw data.
-
----
-
 ## Limitations
 
 - The dataset is used for portfolio demonstration and does not represent a production Canadian bank system.
