@@ -41,6 +41,7 @@ BASE_SAFE_NUMERIC_COLUMNS = [
     "delinq_2yrs",
     "number_of_loans",
     "loan_to_income_ratio",
+    "amount_missing_raw_flag",
     "amount_missing_flag",
     "employment_type_missing_flag",
     "tier_of_employment_missing_flag",
