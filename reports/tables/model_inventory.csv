@@ -1,0 +1,11 @@
+item,value
+business_use,Early-warning retail credit default-risk ranking and manual-review prioritization
+target,Defaulter indicator
+champion_model,xgboost_weighted
+operating_threshold,0.565
+threshold_objective,minimum_cost_review_rate_le_30pct
+modeling_rows,134417
+portfolio_default_rate,0.0904126710163149
+model_feature_count,47
+sensitive_proxy_use,Excluded from baseline model; retained only for audit/governance review where permitted
+leakage_control,Repayment-derived variables excluded from model features
