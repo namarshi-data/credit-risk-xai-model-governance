@@ -284,8 +284,8 @@ Model comparison uses metrics suitable for imbalanced credit risk classification
 
 | Dataset | Recall | Precision | Review rate | Business cost | Business interpretation |
 |---|---:|---:|---:|---:|---|
-| Validation | 62.59% | 19.05% | 29.71% | $5.83M | Selected using validation data under review-cap constraint |
-| Test | 62.21% | 19.09% | 29.46% | $5.85M | Held-out confirmation of selected operating policy |
+| Validation | 62.59% | 19.05% | 29.71% | $5.83M | Selected under review-cap constraint |
+| Test | 62.21% | 19.09% | 29.46% | $5.85M | Held-out confirmation of selected policy |
 
 Business-cost values are illustrative scenario assumptions for threshold comparison. They are not accounting estimates, IFRS 9 estimates, or production loss forecasts.
 
