@@ -432,8 +432,6 @@ Generated summary tables, figures, and governance markdown files may be committe
 
 ---
 
-=======
->>>>>>> 2c99fe8363190ef2c205a2c23d2b5e2e554995e9
 ## Limitations
 
 - The dataset is used for portfolio demonstration and does not represent a production Canadian bank system.
