@@ -409,7 +409,7 @@ source .venv/bin/activate
 ### 3. Install dependencies
 
 ```bash
-pip install --upgrade pip
+python.exe -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
