@@ -381,7 +381,14 @@ The project documents controls that are important in financial-services analytic
 
 ## How to Run Locally
 
-### 1. Create and activate environment
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/bank-loan-propensity-mlops.git
+cd bank-loan-propensity-mlops
+```
+
+### 2. Create and activate environment
 
 ```bash
 python -m venv .venv
@@ -399,14 +406,14 @@ macOS/Linux:
 source .venv/bin/activate
 ```
 
-### 2. Install dependencies
+### 3. Install dependencies
 
 ```bash
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 3. Add the raw workbook locally
+### 4. Add the raw workbook locally
 
 Place the workbook at:
 
@@ -416,7 +423,7 @@ data/raw/Credit_Risk_Dataset.xlsx
 
 Raw data is intentionally excluded from GitHub.
 
-### 4. Run the full script pipeline
+### 5. Run the full script pipeline
 
 ```bash
 python scripts/run_data_pipeline.py
@@ -429,7 +436,7 @@ python scripts/run_explainability_pipeline.py
 python scripts/run_governance_pipeline.py
 ```
 
-### 5. Run notebooks in order
+### 6. Run notebooks in order
 
 Open and run notebooks from `00` to `09`. The notebooks explain both the technical implementation and the business reasoning behind each decision.
 
