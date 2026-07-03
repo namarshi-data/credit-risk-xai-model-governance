@@ -1,4 +1,4 @@
-# Canadian Retail Credit Risk Analytics: Loan Default Prediction with Explainable AI
+# Retail Credit Risk Analytics: Loan Default Prediction with Explainable AI
 
 **Explainable default prediction, portfolio monitoring, threshold strategy, and model governance**
 
@@ -11,7 +11,7 @@
 
 ## Executive Summary
 
-This project develops an end-to-end credit risk analytics and explainable machine learning workflow for a Canadian retail lending portfolio. The objective is to identify borrowers with elevated default risk, monitor portfolio quality, select an operational review threshold, and document model governance controls.
+This project develops an end-to-end credit risk analytics and explainable machine learning workflow for a retail lending portfolio. The objective is to identify borrowers with elevated default risk, monitor portfolio quality, select an operational review threshold, and document model governance controls.
 
 The project is framed as an early-warning default-risk ranking and manual-review prioritization solution, not as an automated credit-decline engine. This distinction is important in financial services because credit risk models must be explainable, auditable, monitored, and aligned with responsible model-risk practices.
 
@@ -509,4 +509,4 @@ This project demonstrates the ability to deliver a finance-focused analytics pro
 - Monitoring KPI and control design
 - Reproducible Python pipeline design
 
-The project is built to demonstrate readiness for Canadian banking, credit risk, risk analytics, model risk, portfolio analytics, and financial data analyst roles.
+The project is built to demonstrate readiness for banking, credit risk, risk analytics, model risk, portfolio analytics, and financial data analyst roles.
