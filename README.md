@@ -1,6 +1,6 @@
-# Retail Credit Risk Analytics: Loan Default Prediction with Explainable AI
+# Retail Credit Risk Analytics: Explainable Loan Default Prediction
 
-**Explainable default prediction, portfolio monitoring, threshold strategy, and model governance**
+> Credit risk modelling, portfolio monitoring, threshold strategy, SHAP explainability, and model governance for retail lending analytics
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Machine Learning](https://img.shields.io/badge/ML-XGBoost%20%7C%20Random%20Forest%20%7C%20Logistic%20Regression-green)
