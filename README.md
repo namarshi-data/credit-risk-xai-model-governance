@@ -9,6 +9,23 @@
 
 ---
 
+## Recruiter Summary
+
+This project demonstrates an end-to-end retail credit risk analytics workflow for identifying borrowers with elevated default risk. It combines Excel workbook ingestion, data quality assessment, portfolio monitoring, leakage-safe feature engineering, imbalanced classification modelling, SHAP explainability, threshold selection under review-cap constraints, and model governance documentation.
+
+**Business use case:** Prioritize higher-risk borrowers for manual review and portfolio monitoring.  
+**Model objective:** Rank default risk, not automate credit approval or decline.  
+**Champion model:** XGBoost weighted baseline.  
+**Test ROC-AUC:** 0.7478.  
+**Selected threshold:** 0.560.  
+**Test recall:** 62.21%.  
+**Test review rate:** 29.46%, kept below the 30% review-cap assumption.  
+**Governance outputs:** Model card, validation summary, monitoring plan, control register, risk-limit register, and stakeholder brief.
+
+This project is designed for Canadian banking, credit risk, risk analytics, model risk, portfolio analytics, and finance data analyst roles.
+
+---
+
 ## Executive Summary
 
 This project develops an end-to-end credit risk analytics and explainable machine learning workflow for a retail lending portfolio. The objective is to identify borrowers with elevated default risk, monitor portfolio quality, select an operational review threshold, and document model governance controls.
@@ -122,6 +139,23 @@ The project includes a model card, validation summary, monitoring plan, control 
 
 ---
 
+## Example Visual Outputs
+
+> Image paths assume the project pipeline has been run locally.
+
+### Portfolio Target Distribution
+
+![Portfolio target distribution](reports/figures/04_target_distribution.png)
+
+### Default Rate by Loan Category
+
+![Default rate by loan category](reports/figures/default_rate_by_loan_category.png)
+
+### Global SHAP Drivers
+
+![Global SHAP feature importance](reports/figures/08_xai_global_grouped_shap_top_features.png)
+
+---
 ## Methodology
 
 ```mermaid
@@ -135,62 +169,6 @@ flowchart LR
     G --> H[Threshold Selection and Business Costing]
     H --> I[Explainable AI]
     I --> J[Model Governance and Monitoring]
-```
-
----
-
-## Repository Structure
-
-```text
-canadian-retail-credit-risk-xai/
-|
-|-- README.md
-|-- requirements.txt
-|-- pyproject.toml
-|-- .gitignore
-|
-|-- config/
-|   |-- config.yaml
-|   |-- model_config.yaml
-|
-|-- data/
-|   |-- raw/             # local only; not committed
-|   |-- interim/         # generated; not committed
-|   |-- processed/       # generated; not committed
-|   |-- external/
-|   |-- sample/
-|
-|-- notebooks/
-|   |-- 00_project_brief_and_business_context.ipynb
-|   |-- 01_data_ingestion_and_schema_review.ipynb
-|   |-- 02_data_quality_assessment.ipynb
-|   |-- 03_data_cleaning_and_preprocessing.ipynb
-|   |-- 04_credit_risk_eda_and_portfolio_monitoring.ipynb
-|   |-- 05_feature_engineering_and_leakage_review.ipynb
-|   |-- 06_model_training_and_evaluation.ipynb
-|   |-- 07_threshold_selection_and_business_costing.ipynb
-|   |-- 08_explainable_ai_shap_anchors_counterfactuals.ipynb
-|   |-- 09_model_governance_and_monitoring.ipynb
-|
-|-- src/credit_risk/
-|   |-- data/
-|   |-- features/
-|   |-- models/
-|   |-- explainability/
-|   |-- monitoring/
-|   |-- governance/
-|   |-- utils/
-|
-|-- reports/
-|   |-- figures/
-|   |-- tables/
-|   |-- governance/
-|   |-- html/
-|   |-- model_artifacts/  # local only; not committed
-|
-|-- scripts/
-|-- tests/
-|-- docs/
 ```
 
 ---
@@ -304,7 +282,7 @@ Notebook 08 generates business-readable explainability artifacts:
 - Deepchecks model evaluation report
 - Stakeholder metric interpretation table
 
-Important governance note:Important governance note: counterfactuals are diagnostic model-sensitivity scenarios and should not be used as direct customer instructions.
+> **Governance note:** Counterfactuals are diagnostic model-sensitivity scenarios and should not be used as direct customer instructions or adverse-action reasons.
 
 ---
 
@@ -344,31 +322,13 @@ The project documents controls that are important in financial-services analytic
 
 ---
 
-## Example Visual Outputs
-
-> Image paths assume the project pipeline has been run locally.
-
-### Portfolio Target Distribution
-
-![Portfolio target distribution](reports/figures/04_target_distribution.png)
-
-### Default Rate by Loan Category
-
-![Default rate by loan category](reports/figures/default_rate_by_loan_category.png)
-
-### Global SHAP Drivers
-
-![Global SHAP feature importance](reports/figures/08_xai_global_grouped_shap_top_features.png)
-
----
-
 ## How to Run Locally
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/bank-loan-propensity-mlops.git
-cd bank-loan-propensity-mlops
+git clone https://github.com/your-username/credit-risk-xai-model-governance.git
+cd credit-risk-xai-model-governance
 ```
 
 ### 2. Create and activate environment
@@ -443,44 +403,99 @@ Open and run notebooks from `00` to `09`. The notebooks explain both the technic
 
 ---
 
-## What Not to Commit
-
-Do not commit raw datasets, processed datasets, model binaries, secrets, local environments, or private credentials.
-
-Recommended `.gitignore` entries:
+## Repository Structure
 
 ```text
-data/raw/*
-data/interim/*
-data/processed/*
-reports/model_artifacts/*
-*.xlsx
-*.xls
-*.joblib
-*.pkl
-.env
-.venv/
-__pycache__/
-.ipynb_checkpoints/
+credit-risk-xai-model-governance/
+|
+|-- README.md
+|-- requirements.txt
+|-- pyproject.toml
+|-- .gitignore
+|
+|-- config/
+|   |-- config.yaml
+|   |-- model_config.yaml
+|
+|-- data/
+|   |-- raw/             # local only; not committed
+|   |-- interim/         # generated; not committed
+|   |-- processed/       # generated; not committed
+|   |-- external/
+|   |-- sample/
+|
+|-- notebooks/
+|   |-- 00_project_brief_and_business_context.ipynb
+|   |-- 01_data_ingestion_and_schema_review.ipynb
+|   |-- 02_data_quality_assessment.ipynb
+|   |-- 03_data_cleaning_and_preprocessing.ipynb
+|   |-- 04_credit_risk_eda_and_portfolio_monitoring.ipynb
+|   |-- 05_feature_engineering_and_leakage_review.ipynb
+|   |-- 06_model_training_and_evaluation.ipynb
+|   |-- 07_threshold_selection_and_business_costing.ipynb
+|   |-- 08_explainable_ai_shap_anchors_counterfactuals.ipynb
+|   |-- 09_model_governance_and_monitoring.ipynb
+|
+|-- src/credit_risk/
+|   |-- data/
+|   |-- features/
+|   |-- models/
+|   |-- explainability/
+|   |-- monitoring/
+|   |-- governance/
+|   |-- utils/
+|
+|-- reports/
+|   |-- figures/
+|   |-- tables/
+|   |-- governance/
+|   |-- html/
+|   |-- model_artifacts/  # local only; not committed
+|
+|-- scripts/
+|-- tests/
+|-- docs/
 ```
-
-Generated summary tables, figures, and governance markdown files may be committed if they do not expose confidential or restricted raw data.
 
 ---
 
 ## Target Roles This Project Supports
 
-This project is designed to support applications for roles such as:
+| Target Role | Project Evidence |
+|---|---|
+| Credit Risk Analyst | Default-rate analysis, borrower segmentation, portfolio exposure review, delinquency-risk interpretation, and threshold-based review prioritization |
+| Risk Analytics Analyst | Python modelling, validation metrics, threshold strategy, monitoring KPI design, and business-cost trade-off analysis |
+| Model Risk Analyst | Leakage review, model validation summary, model card, control register, explainability documentation, and responsible-use limitations |
+| Data Analyst - Banking / Finance | Data quality checks, exploratory analysis, reporting tables, reproducible pipelines, and business-focused insights |
+| Portfolio Analytics Analyst | Review-rate analysis, risk ranking, segment-level monitoring, exposure analysis, and portfolio performance tracking |
+| Banking Data Scientist | XGBoost, Random Forest, imbalanced classification, SHAP explainability, threshold tuning, and model monitoring |
+| BI / Reporting Analyst | Governance tables, KPI snapshots, stakeholder summaries, structured reporting outputs, and executive-ready documentation |
 
-| Target Role                      | Project Evidence                                                                                                                        |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Credit Risk Analyst              | Default-rate analysis, borrower segmentation, portfolio exposure review, delinquency behaviour analysis, and risk-driver interpretation |
-| Risk Analytics Analyst           | Python-based modelling, validation metrics, threshold strategy, model performance comparison, and monitoring KPI design                 |
-| Data Analyst - Banking / Finance | Data quality checks, exploratory data analysis, reporting tables, reproducible pipelines, and business-focused insights                 |
-| Portfolio Analytics Analyst      | Review-rate analysis, risk ranking, segment-level monitoring, exposure analysis, and portfolio performance tracking                     |
-| Model Risk Analyst               | Leakage review, model validation summary, model card, control register, and explainability documentation                                |
-| Banking Data Scientist           | Random Forest, XGBoost, imbalanced classification, SHAP explainability, threshold tuning, and model monitoring                          |
-| BI / Reporting Analyst           | Governance tables, KPI snapshots, stakeholder summaries, structured reporting outputs, and executive-ready documentation                |
+---
+
+## What I Would Walk Through in an Interview
+
+1. How the credit risk business problem was translated into a default-risk ranking task.
+2. Why the model is positioned for manual-review prioritization rather than automated credit decline.
+3. How data quality issues, missingness, leakage, and proxy-risk fields were reviewed before modelling.
+4. Why ROC-AUC, PR-AUC, recall, precision, and review rate are more useful than accuracy for imbalanced default prediction.
+5. How the 0.560 threshold was selected using validation data and a 30% review-rate cap.
+6. How SHAP and local explanations support stakeholder understanding.
+7. What monitoring, validation, fairness, privacy, and governance controls would be required before production use.
+
+---
+
+## Reporting and Dashboard Opportunities
+
+This project can be extended into a Power BI or Excel reporting layer for:
+
+- Portfolio exposure by risk band
+- Default rate by borrower segment
+- Review population by threshold
+- Monthly monitoring KPI snapshot
+- Model performance and drift monitoring
+- Data quality exception reporting
+- Risk-limit breach tracking
 
 ---
 
